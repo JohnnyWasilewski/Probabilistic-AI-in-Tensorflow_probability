@@ -27,12 +27,13 @@ for i in range(5):
             target_log_prob_fn=unnormalized_posterior_log_prob,
             step_size=0.5,
             num_leapfrog_steps=3))
-    
+
     samples, is_accepted = tfp.mcmc.sample_chain(
         num_results=num_results,
         num_burnin_steps=num_burnin_steps,
         current_state = tf.zeros(1),
         kernel=hmc)
+
     samples_all.append(samples.numpy())
 
 # Plot prior and posterior distributions
