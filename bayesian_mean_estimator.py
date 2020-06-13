@@ -11,7 +11,7 @@ toy_data = tfd.Normal(loc = 4, scale = 4).sample(5000)
 def joint_log_prob(data, mu):
     prior = tfd.Uniform(low = 0, high = 5)
     likelihood = tfd.Normal(loc = mu, scale = 4)
-    return(prior.log_prob(mu) + sum(likelihood.log_prob(data)))
+    return prior.log_prob(mu) + sum(likelihood.log_prob(data))
 
 # Sample from posterior distributions
 num_results = int(1e4)
